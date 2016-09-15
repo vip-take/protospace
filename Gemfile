@@ -45,3 +45,6 @@ group :development do
   gem 'spring'
 end
 
+gem "erb2haml", :group => :development
+
+gem "haml-rails", "~> 0.9"
