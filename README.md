@@ -2,7 +2,7 @@
 ## association
     has_many :prototypes, :comments, :likes
 ## table
- - t.string :Name
+ - t.string :name
  - t.string :password
  - t.string :email
  - t.string :group
@@ -17,16 +17,18 @@
     belongs_to :user
 ## table
  - t.text :catchcopy
- - t.text concept
+ - t.text :concept
  - t.integer :user_id
+ - t.string :title
 
 
 #CapturedImage
 ## association
-    belongs_to :prototype_id
+    belongs_to :prototype
 ## table
  - t.integer :prototype_id
  - t.text :photo
+ - t.integer :role
 
 
 #like
@@ -37,7 +39,7 @@
  - t.integer :user_id
 
 
-#Commet
+#Comment
 ## association
     belongs_to: :user, :prototype
 ## table
