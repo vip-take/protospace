@@ -50,3 +50,5 @@ gem "erb2haml", :group => :development
 gem "haml-rails", "~> 0.9"
 
 gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'devise'
