@@ -11,7 +11,7 @@
         %li{role: "presentation"}
           %a{href: "#"} Newest PROTO
       %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
-
+      = link_to 'サインアウト', "#{destroy_user_session_path}", method: :delete
 .container.proto-list
   .row
     .col-sm-4.col-md-3.proto-content
