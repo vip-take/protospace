@@ -8,10 +8,9 @@
             = f.text_field :name, placeholder: "Username", class: "user-name"
           .user-image.col-md-2
             %button.btn.btn-primary Add image
-            / = f.file_field :avatar
-          = f.email_field :email, placeholder: "E-Mail", class: "user-email"
-          = f.password_field :password, placeholder: "Password", autocomplete: "off",class: "user-password"
-          = f.password_field :password_confirmation, placeholder: "Password", autocomplete: "off", class: "user-password"
+        = f.email_field :email, placeholder: "E-Mail(必須)", class: "user-email"
+        = f.password_field :password, placeholder: "Password(必須)", autocomplete: "off",class: "user-password"
+        = f.password_field :password_confirmation, placeholder: "Password", autocomplete: "off", class: "user-password"
       .col-md-12
         %h4 Member of
         .user-user-member.row
