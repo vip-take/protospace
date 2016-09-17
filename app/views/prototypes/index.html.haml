@@ -11,8 +11,12 @@
         %li{role: "presentation"}
           %a{href: "#"} Newest PROTO
       %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
-      = link_to 'サインアウト', "#{destroy_user_session_path}", method: :delete
-      = link_to 'マイページ', "#{user_path(current_user.id)}"
+      - if user_signed_in?
+        = link_to 'サインアウト', "#{destroy_user_session_path}", method: :delete
+        = link_to 'マイページ', "#{user_path(current_user.id)}"
+        = link_to 'プロフィール編集', "#{edit_user_path(current_user.id)}"
+      - else
+        = link_to 'サインイン', "#{new_user_session_path}"
 
 .container.proto-list
   .row
