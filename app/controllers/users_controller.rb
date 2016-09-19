@@ -15,7 +15,6 @@ class UsersController < ApplicationController
       @user.update(update_params)
       if @user.errors.present?
         flash[:error] = @user.errors.full_messages
-        binding.pry
         redirect_to :back and return
       end
     else
@@ -24,10 +23,8 @@ class UsersController < ApplicationController
         flash[:error] = @user.errors.full_messages
         redirect_to :back and return
       end
-      binding.pry
       redirect_to '/users/sign_in' and return
     end
-    binding.pry
     redirect_to :root, notice: "Profile updated"
   end
 
