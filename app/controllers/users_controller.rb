@@ -13,11 +13,22 @@ class UsersController < ApplicationController
     find_user
     if params[:user][:password] == ""
       @user.update(update_params)
+      if @user.errors.present?
+        flash[:error] = @user.errors.full_messages
+        binding.pry
+        redirect_to :back and return
+      end
     else
       @user.update(update_with_password_params)
+      if @user.errors.present?
+        flash[:error] = @user.errors.full_messages
+        redirect_to :back and return
+      end
+      binding.pry
       redirect_to '/users/sign_in' and return
     end
-    redirect_to :root
+    binding.pry
+    redirect_to :root, notice: "Profile updated"
   end
 
   private
