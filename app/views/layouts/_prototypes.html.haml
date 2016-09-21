@@ -1,7 +1,7 @@
 .col-sm-4.col-md-3.proto-content
   .thumbnail
-    %a{href: "/prototypes/show"}
-      = image_tag("sample.png")
+    %a{href: "#{prototype_path(proto.id)}"}
+      = image_tag proto.images.find_by(role: "main").photo
       .caption
         %h3= proto.title
         .proto-meta
