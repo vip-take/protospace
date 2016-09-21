@@ -5,11 +5,12 @@ class PrototypesController < ApplicationController
 
   def new
     @proto = Prototype.new
-    @user = current_user.id
+    @proto.images.build
   end
 
   def create
-    Prototype.create(create_params)
+    binding.pry
+    @hoge = Prototype.create(create_params)
     redirect_to :root
   end
 
@@ -19,7 +20,7 @@ class PrototypesController < ApplicationController
   private
 
   def create_params
-    params.require(:prototype).permit(:title, :catchcopy, :concept).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:prototype_id,:photo, :role]).merge(user_id: current_user.id)
   end
 
 end
