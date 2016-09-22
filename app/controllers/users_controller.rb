@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     find_user
+    @protos = @user.prototypes.order("id DESC")
   end
 
   def edit
