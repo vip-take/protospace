@@ -17,11 +17,11 @@
         %span.num 20
   .row
     .col-md-9
-      = image_tag @main.photo, class: 'img-responsive'
+      = image_tag @proto.images.main.first.photo, class: 'img-responsive'
     .col-md-3
       %ul.proto-sub-list.list-group
-      - if @sub.present?
-        - @sub.each do |image|
+      - if @proto.images.sub.present?
+        - @proto.images.sub.each do |image|
           - if image.photo.present?
             %li.list-group-item
               = image_tag image.photo , class: 'img-responsive'
