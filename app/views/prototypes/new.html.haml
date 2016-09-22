@@ -2,12 +2,12 @@
   .col-md-8.col-md-offset-2
     %header.row.user-nav.row
       .col-md-12
-        = f.text_field :title, placeholder: "Title", class: "proto-new-title"
+        = f.text_field :title, placeholder: "Title", class: "proto-new-title",required: :required
     .row
     = f.fields_for :images do |i|
       .col-md-12
         .cover-image-upload
-          = i.file_field :photo
+          = i.file_field :photo,required: :required
           = i.hidden_field :role, value: "main"
       .col-md-12
         %ul.proto-sub-list.list-group
@@ -28,9 +28,9 @@
               = i.hidden_field :role, value: "sub"
     .row.proto-description
       .col-md-12
-        = f.text_field :catchcopy, placeholder: "Catch Copy"
+        = f.text_field :catchcopy, placeholder: "Catch Copy", required: :required
       .col-md-12
-        = f.text_field :concept, placeholder: "Concept"
+        = f.text_field :concept, placeholder: "Concept", required: :required
       .col-md-12
         %h4 Tag List
         .row
