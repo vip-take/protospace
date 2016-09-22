@@ -22,8 +22,9 @@
       %ul.proto-sub-list.list-group
       - if @sub.present?
         - @sub.each do |image|
-          %li.list-group-item
-            = image_tag image.photo , class: 'img-responsive'
+          - if image.photo.present?
+            %li.list-group-item
+              = image_tag image.photo , class: 'img-responsive'
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
