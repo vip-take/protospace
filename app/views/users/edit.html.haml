@@ -1,4 +1,4 @@
-= form_for(current_user, html: {class: "container user-new"}) do |f|
+= form_for(current_user, html: {class: "container user-new", multipart: "true"}) do |f|
   .col-md-8.col-md-offset-2
     %header.row.user-nav.row
       .col-md-12
@@ -8,6 +8,7 @@
             = f.text_field :name, placeholder: "Username", class: "user-name"
           .user-image.col-md-2
             %button.btn.btn-primary change image
+            = f.file_field :avatar
         = f.email_field :email, placeholder: "E-Mail(必須)", class: "user-email"
         = f.password_field :password, placeholder: "パスワード(変更する場合のみ)", autocomplete: "off",class: "user-password"
         = f.password_field :password_confirmation, placeholder: "パスワードを再入力(変更する場合のみ)", autocomplete: "off", class: "user-password"
