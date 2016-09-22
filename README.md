@@ -8,7 +8,7 @@
  - t.string :group
  - t.text :profile
  - t.string :works
- - t.text :avatar
+ - t.string :avatar
 
 
 #Prototype
@@ -22,12 +22,12 @@
  - t.string :title
 
 
-#CapturedImage
+#image
 ## association
     belongs_to :prototype
 ## table
  - t.integer :prototype_id
- - t.text :photo
+ - t.string :photo
  - t.integer :role
 
 
