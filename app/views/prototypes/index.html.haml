@@ -1,7 +1,6 @@
 .jumbotron
   .container.text-center
     = image_tag("header_logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "73px")
-
 .filter-nav
   .container
     .row
@@ -13,8 +12,7 @@
       %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
 .container.proto-list
   .row
-    - @protos.each do |proto|
-      = render "layouts/prototypes" , proto: proto
+    = render partial: "layouts/prototypes" , collection: @protos, as: :proto
 .text-center
   %ul.pagination
     %li.disabled

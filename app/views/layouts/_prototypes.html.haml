@@ -1,15 +1,14 @@
 .col-sm-4.col-md-3.proto-content
   .thumbnail
-    %a{href: "#{prototype_path(proto.id)}"}
-      = image_tag proto.images.find_by(role: "main").photo
-      .caption
-        %h3= proto.title
-        .proto-meta
-          .proto-user
-            = proto.user.email
-          .proto-posted
-        %ul.proto-tag-list.list-inline
-          %li
-            %a{href: "#", class: "btn btn-default"} iPad
-          %li
-            %a{href: "#", class: "btn btn-default"} wireframe
+    = link_to image_tag(proto.images.main.first.photo), prototype_path(proto)
+    .caption
+      %h3= proto.title
+      .proto-meta
+        .proto-user
+          = proto.user.email
+        .proto-posted
+      %ul.proto-tag-list.list-inline
+        %li
+          %a{href: "#", class: "btn btn-default"} iPad
+        %li
+          %a{href: "#", class: "btn btn-default"} wireframe

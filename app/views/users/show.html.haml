@@ -21,8 +21,7 @@
             %p #{@user.works}
 .container.proto-list
   .row
-    - @protos.each do |proto|
-      = render "layouts/prototypes" , proto: proto
+    = render partial: "layouts/prototypes" , collection: @protos, as: :proto
 .text-center
   %ul.pagination
     %li.disabled

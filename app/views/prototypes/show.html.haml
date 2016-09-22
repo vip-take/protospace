@@ -3,14 +3,13 @@
     .col-md-6
       .media
         .media-left
-          %a{href: "/users/#{@proto.user.id}"}
-            %img.media-object{alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "#{@proto.user.avatar}", style: "width: 64px; height: 64px;"}/
+          = link_to image_tag(@proto.images.main.first.photo, class: "media-object", alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "#{@proto.user.avatar}", style: "width: 64px; height: 64px;"), "/users/#{@proto.user.id}"
         .media-body
           %h4#top-aligned-media.media-heading
             = @proto.title
           .proto-user
             = link_to "by #{@proto.user.email}","#{user_path(@proto.user.id)}"
-            %span.degree #{@proto.user.profile}
+            %span= @proto.user.profile
     .col-md-6.text-right
       %button.btn.btn-default
         = image_tag("icon_heart.svg")
@@ -21,10 +20,10 @@
       = image_tag @main.photo, class: 'img-responsive'
     .col-md-3
       %ul.proto-sub-list.list-group
-      - if @sub.exists?
+      - if @sub.present?
         - @sub.each do |image|
           %li.list-group-item
-            = image_tag("#{image.photo}", class: 'img-responsive')
+            = image_tag image.photo , class: 'img-responsive'
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
