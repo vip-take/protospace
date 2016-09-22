@@ -9,10 +9,9 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    if params[:prototype][:images_attributes]["0"][:photo].present?
-      Prototype.create(create_params)
-    else
-      flash[:error] = "Main image is required."
+    @proto = Prototype.create(create_params)
+    if @proto.errors.present?
+      flash[:error] = @proto.errors.full_messages
       redirect_to :back and return
     end
     redirect_to :root
