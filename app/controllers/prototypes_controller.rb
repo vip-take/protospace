@@ -16,6 +16,9 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @proto = Prototype.find(params[:id])
+    @main = @proto.images.find_by(role: "main")
+    @sub = @proto.images.sub
   end
 
   private
