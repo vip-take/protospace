@@ -9,7 +9,12 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @hoge = Prototype.create(create_params)
+    if params[:prototype][:images_attributes]["0"][:photo].present?
+      Prototype.create(create_params)
+    else
+      flash[:error] = "Main image is required."
+      redirect_to :back and return
+    end
     redirect_to :root
   end
 
