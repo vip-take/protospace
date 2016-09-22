@@ -2,8 +2,7 @@
   %header.user-nav
     .media
       .media-left
-        %a{href: "/users/#{@user.id}"}
-          %img.media-object{alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "#{@user.avatar}", style: "width: 64px; height: 64px;"}/
+        = link_to image_tag(@user.avatar, class: "media-object", alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "#{@user.avatar}", style: "width: 64px; height: 64px;"), "/users/#{@user.id}"
       .media-body
         %h4#top-aligned-media.media-heading
           Member of

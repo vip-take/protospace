@@ -3,7 +3,7 @@
     .col-md-6
       .media
         .media-left
-          = link_to image_tag(@proto.images.main.first.photo, class: "media-object", alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "#{@proto.user.avatar}", style: "width: 64px; height: 64px;"), "/users/#{@proto.user.id}"
+          = link_to image_tag(@proto.user.avatar, class: "media-object", alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "#{@proto.user.avatar}", style: "width: 64px; height: 64px;"), "/users/#{@proto.user.id}"
         .media-body
           %h4#top-aligned-media.media-heading
             = @proto.title
