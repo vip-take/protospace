@@ -30,11 +30,11 @@ class UsersController < ApplicationController
 
   private
   def update_params
-    params.require(:user).permit(:name, :email, :group, :profile, :works)
+    params.require(:user).permit(:name, :email, :group, :profile, :works, :avatar)
   end
 
   def update_with_password_params
-    params.require(:user).permit(:name, :email, :password , :password_confirmation, :group, :profile, :works)
+    params.require(:user).permit(:name, :email, :password , :password_confirmation, :group, :profile, :works, :avatar)
   end
 
   def find_user
