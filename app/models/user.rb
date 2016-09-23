@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :prototypes
 
+  # Carrierwave設定
+  mount_uploader :avatar, AvatarUploader
+
 end

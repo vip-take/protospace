@@ -55,4 +55,6 @@ gem 'devise'
 
 gem 'pry-rails'
 
-gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+
+gem 'rmagick', require: 'RMagick'
