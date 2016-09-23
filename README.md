@@ -13,8 +13,9 @@
 
 #Prototype
 ## association
-    has_many :comments, likes, capturedimages, tags
+    has_many :comments, likes, images, tags
     belongs_to :user
+    accepts_nested_attributes_for :images, allow_destroy: true 
 ## table
  - t.text :catchcopy
  - t.text :concept
