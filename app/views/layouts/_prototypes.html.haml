@@ -1,4 +1,6 @@
 .col-sm-4.col-md-3.proto-content
+  - if proto.user.id == current_user.id
+    = link_to "edit",edit_prototype_path(proto)
   .thumbnail
     = link_to image_tag(proto.images.main.first.photo), prototype_path(proto)
     .caption
