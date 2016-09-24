@@ -1,0 +1,35 @@
+= form_for(@proto, html: {class: "container proto-new", multipart: "true"}) do |f|
+  .col-md-8.col-md-offset-2
+    %header.row.user-nav.row
+      .col-md-12
+        = f.text_field :title, placeholder: "Title", class: "proto-new-title",required: :required
+    .row
+      = f.fields_for :images, @proto.images.main.first do |i|
+        .col-md-12
+          .cover-image-upload
+            = i.file_field :photo
+            = i.hidden_field :role, value: "main"
+        .col-md-12
+        - @proto.images.sub.each do |image|
+          %ul.proto-sub-list.list-group
+          = f.fields_for :images, image do |i|
+            %li.list-group-item.col-md-4
+              .image-upload
+                = i.file_field :photo
+                = i.hidden_field :role, value: "sub"
+    .row.proto-description
+      .col-md-12
+        = f.text_field :catchcopy, placeholder: "Catch Copy", required: :required
+      .col-md-12
+        = f.text_field :concept, placeholder: "Concept", required: :required
+      .col-md-12
+        %h4 Tag List
+        .row
+          .col-md-3
+            %input{type: "text", placeholder: "Web Design"}/
+          .col-md-3
+            %input{type: "text", placeholder: "UI"}/
+          .col-md-3
+            %input{type: "text", placeholder: "Application"}/
+    .row.text-center.proto-btn
+      = f.submit "Publish", class: "btn btn-lg btn-primary btn-block"

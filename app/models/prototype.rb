@@ -3,8 +3,8 @@ class Prototype < ActiveRecord::Base
   belongs_to :user
 
   # 親モデルによるimageファイルの一括更新
-  has_many :images
-  accepts_nested_attributes_for :images
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :parent_check
 
   validates :title, presence: true
   validates :catchcopy, presence: true
@@ -17,6 +17,10 @@ class Prototype < ActiveRecord::Base
     unless images.first.photo.present?
       errors.add(:image, "Main image can't be blank :(")
     end
+  end
+
+  def parent_check
+    attributes['title'].blank?
   end
 
 end
