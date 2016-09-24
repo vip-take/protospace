@@ -2,6 +2,9 @@ class Prototype < ActiveRecord::Base
 
   belongs_to :user
 
+  # likesのアソシエーション。親が消えたらlikeも消えるように設定。
+  has_many :likes, dependent: :destroy
+
   # 親モデルによるimageファイルの一括更新
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :parent_check
