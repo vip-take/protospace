@@ -27,8 +27,9 @@ class PrototypesController < ApplicationController
 
   def update
     @proto = Prototype.find(params[:id])
-    @proto.update(update_params)
-    if @proto.errors.present?
+    if @proto.save(update_params)
+      flash[:notice] = 'Prototype is updated'
+    elsif @proto.errors.present?
       flash[:error] = @proto.errors.full_messages
       redirect_to :back and return
     end
