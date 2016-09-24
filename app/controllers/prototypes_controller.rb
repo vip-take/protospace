@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   def index
-    @protos = Prototype.includes(:images).order("id DESC").limit(6)
+    @protos = Prototype.includes(:images).order("id DESC").page(params[:page])
   end
 
   def new

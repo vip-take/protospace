@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     find_user
-    @protos = @user.prototypes.order("id DESC")
+    @protos = @user.prototypes.includes(:images).order("id DESC").page(params[:page])
   end
 
   def edit
