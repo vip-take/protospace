@@ -1,0 +1,9 @@
+= form_for like, remote: true do |f|
+  = f.hidden_field :prototype_id , value: proto.id
+  = button_tag( class: "button btn btn-default") do
+    - if proto.likes.find_by(user_id: current_user.id).present?
+      = image_tag("icon_heart_red.svg")
+    - else
+      = image_tag("icon_heart_gray.svg")
+    like
+    %span.num= proto.likes_count
