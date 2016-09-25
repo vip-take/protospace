@@ -11,10 +11,16 @@
             = link_to "by #{@proto.user.email}","#{user_path(@proto.user.id)}"
             %span= @proto.user.profile
     .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+      #like-box
+        = form_for @like, remote: true do |f|
+          = f.hidden_field :prototype_id , value: @proto.id
+          = button_tag( class: "button btn btn-default") do
+            - if @proto.likes.find_by(user_id: current_user.id).present?
+              = image_tag("icon_heart_red.svg")
+            - else
+              = image_tag("icon_heart_gray.svg")
+            like
+            %span.num= @proto.likes_count
   .row
     .col-md-9
       = image_tag @proto.images.main.first.photo, class: 'img-responsive'
