@@ -2,6 +2,9 @@ class Prototype < ActiveRecord::Base
 
   belongs_to :user
 
+  # commentsのアソシエーション。親が消えたらlikeも消えるように設定。
+  has_many :comments, dependent: :destroy
+
   # likesのアソシエーション。親が消えたらlikeも消えるように設定。
   has_many :likes, dependent: :destroy
 
