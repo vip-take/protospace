@@ -19,6 +19,11 @@ class PrototypesController < ApplicationController
 
   def show
     @proto = Prototype.find(params[:id])
+    if @proto.likes.find_by(user_id: current_user.id).present?
+      @like = @proto.likes.find_by(user_id: current_user.id)
+    else
+      @like = Like.new
+    end
   end
 
   def edit

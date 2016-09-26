@@ -1,0 +1,5 @@
+= link_to(prototype_like_path(proto,like), :method => "delete", remote: true) do
+  %button.button.btn.btn-default
+    = image_tag("icon_heart_red.svg")
+    like
+    %span.num= proto.likes_count

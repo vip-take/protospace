@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   get  '/prototypes/index'  =>    'prototypes#index'
 
-  resources :prototypes, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :prototypes, only: [:new, :create, :show, :edit, :update, :destroy] do
+    resources :likes, only: [:create, :destroy]
+  end
+
   resources :users, only: [:show, :edit, :update]
 end
