@@ -1,0 +1,9 @@
+.media
+  .media-left
+    = link_to image_tag(comment.user.avatar, class: "media-object", alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "#{comment.user.avatar}", style: "width: 64px; height: 64px;"), "/users/#{comment.user.id}"
+  .media-body
+    %h4#top-aligned-media.media-heading
+      = comment.user.email
+      %a.anchorjs-link{href: "#top-aligned-media"}
+        %span.anchorjs-icon
+    %p= comment.text
