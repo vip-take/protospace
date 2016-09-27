@@ -1,6 +1,12 @@
 class Prototype < ActiveRecord::Base
 
+  # form_forのためのタグインスタンス作成
+  attr_accessor :tag1, :tag2, :tag3
+
   belongs_to :user
+
+  # tag gemの設定
+  acts_as_taggable_on :tags
 
   # commentsのアソシエーション。親が消えたらlikeも消えるように設定。
   has_many :comments, dependent: :destroy

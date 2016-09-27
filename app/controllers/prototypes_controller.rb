@@ -23,11 +23,14 @@ class PrototypesController < ApplicationController
 
   def edit
     @proto = Prototype.find(params[:id])
+    @proto.tag1 = @proto.tags.first
+    @proto.tag2 = @proto.tags.second
+    @proto.tag3 = @proto.tags.third
   end
 
   def update
     @proto = Prototype.find(params[:id])
-    if @proto.save(update_params)
+    if @proto.update(update_params)
       flash[:notice] = 'Prototype is updated'
     elsif @proto.errors.present?
       flash[:error] = @proto.errors.full_messages
@@ -43,13 +46,16 @@ class PrototypesController < ApplicationController
   end
 
   private
-
   def create_params
-    params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:prototype_id,:photo, :role]).merge(user_id: current_user.id)
+    hash = params.require(:prototype).permit(:tag1, :tag2, :tag3)
+    tag_list = hash.values.join(",")
+    params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:prototype_id,:photo, :role]).merge(user_id: current_user.id, tag_list: tag_list)
   end
 
   def update_params
-    params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:id, :prototype_id, :photo, :role]).merge(user_id: current_user.id)
+    hash = params.require(:prototype).permit(:tag1, :tag2, :tag3)
+    tag_list = hash.values.join(",")
+    params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:id, :prototype_id, :photo, :role]).merge(user_id: current_user.id, tag_list: tag_list)
   end
 
 end
