@@ -5,10 +5,10 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{role: "presentation"}
-          %a{href: "#"} Popular PROTO
         %li{role: "presentation"}
-          %a{href: "#"} Newest PROTO
+          = link_to "Popular Proto", prototypes_populars_path
+        %li.active{role: "presentation"}
+          = link_to "Newest Proto", prototypes_newests_path
       %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
 .container.proto-list
   .row
