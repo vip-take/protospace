@@ -1,0 +1,2 @@
+module Prototypes::NewestsHelper
+end
