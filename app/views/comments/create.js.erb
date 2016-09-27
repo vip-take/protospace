@@ -1,0 +1,3 @@
+$("span.num").html("<%= j("(#{@proto.comments.count})") %>");
+$("#comment-list").html("<%= j(render partial: "layouts/comments", collection: @proto.comments,as: :comment) %>");
+$("#comment_text").val("");
