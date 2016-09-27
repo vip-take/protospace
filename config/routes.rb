@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'prototypes#index'
+  root 'prototypes/populars#index'
 
-  get  '/prototypes/index'  =>    'prototypes#index'
+  get  '/prototypes/index'  =>    'prototypes/populars#index'
+
+  get  '/prototypes/newests'  =>    'prototypes/newests#index'
+
+  get  '/prototypes/populars'  =>    'prototypes/populars#index'
 
   resources :prototypes, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :likes, only: [:create, :destroy]
