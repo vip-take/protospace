@@ -1,8 +1,4 @@
 class PrototypesController < ApplicationController
-  def index
-    @protos = Prototype.includes(:images).order("id DESC").page(params[:page])
-  end
-
   def new
     @proto = Prototype.new
     @proto.images.build
