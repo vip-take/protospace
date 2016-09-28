@@ -1,5 +1,8 @@
 class Prototype < ActiveRecord::Base
 
+  # form_forのためのタグインスタンス作成
+  attr_accessor :tag1, :tag2, :tag3
+
   belongs_to :user
 
   # tag gemの設定
