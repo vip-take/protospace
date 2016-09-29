@@ -2,6 +2,9 @@ class Prototype < ActiveRecord::Base
 
   belongs_to :user
 
+  # tag gemの設定
+  acts_as_taggable_on :tags
+
   # commentsのアソシエーション。親が消えたらlikeも消えるように設定。
   has_many :comments, dependent: :destroy
 

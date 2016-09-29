@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :prototypes do
     resources :populars, only: [:index]
     resources :newests, only: [:index]
+    resources :tags, only: [:index, :show]
   end
 
   resources :prototypes, only: [:new, :create, :show, :edit, :update, :destroy] do
