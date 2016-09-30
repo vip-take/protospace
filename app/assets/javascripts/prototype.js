@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function(){
   // protospace_page
   var imageInputs = document.querySelectorAll('[type=file]');
-  for (var i =0, len = imageInputs.length; i<len; ++i) {
+  for (var i =0, len = imageInputs.length; i < len; ++i) {
     var imageInput = imageInputs[i];
     imageInput.addEventListener('change',function(ev) {
       var reader = new FileReader();

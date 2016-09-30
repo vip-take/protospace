@@ -12,7 +12,7 @@
           = i.hidden_field :role, value: "main"
       .col-md-12
         %ul.proto-sub-list.list-group
-        - for l in 1..3 do
+        - 3.times do
           = f.fields_for :images, @sub do |i|
             %li.list-group-item.col-md-4
               .image-upload
