@@ -8,6 +8,7 @@
       .col-md-12
         .cover-image-upload
           = i.file_field :photo,required: :required
+          = image_tag("", class: "image_preview")
           = i.hidden_field :role, value: "main"
       .col-md-12
         %ul.proto-sub-list.list-group
@@ -15,16 +16,19 @@
           %li.list-group-item.col-md-4
             .image-upload
               = i.file_field :photo
+              = image_tag("", class: "image_preview")
               = i.hidden_field :role, value: "sub"
         = f.fields_for :images do |i|
           %li.list-group-item.col-md-4
             .image-upload
               = i.file_field :photo
+              = image_tag("", class: "image_preview")
               = i.hidden_field :role, value: "sub"
         = f.fields_for :images do |i|
           %li.list-group-item.col-md-4
             .image-upload
               = i.file_field :photo
+              = image_tag("", class: "image_preview")
               = i.hidden_field :role, value: "sub"
     .row.proto-description
       .col-md-12
