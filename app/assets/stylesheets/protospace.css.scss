@@ -7,6 +7,15 @@
   height: 100%;
 }
 
+.avatar_image {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
 /*-- Body style ---------------------------------- */
 body {
   font-family: "Lato", 'Helvetica Neue, Helvetica, Arial', sans-serif;
