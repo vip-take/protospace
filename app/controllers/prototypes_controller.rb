@@ -2,10 +2,6 @@ class PrototypesController < ApplicationController
   def new
     @proto = Prototype.new
     @proto.images.build
-
-    # @main = @proto.images.build
-    # @sub = @proto.images.build
-    binding.pry
  end
 
   def create
