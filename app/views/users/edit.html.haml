@@ -6,7 +6,7 @@
         .user-name_image.row
           .user-name.col-md-10
             = f.text_field :name, placeholder: "Username", class: "user-name"
-          .user-image.col-md-2
+          .user-image.col-md-2{ style: "background-image: url(#{current_user.avatar});" }
             %button.btn.btn-primary change image
             = f.file_field :avatar, id: "avatar_image"
         = f.email_field :email, placeholder: "E-Mail(必須)", class: "user-email"
