@@ -62,3 +62,5 @@ gem 'rmagick', require: 'RMagick'
 gem 'kaminari'
 
 gem 'acts-as-taggable-on', '~> 4.0'
+
+gem 'jquery-turbolinks'
