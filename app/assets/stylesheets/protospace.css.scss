@@ -1,6 +1,21 @@
 /* -- import Roboto Font ------------------------------ */
 @import "//fonts.googleapis.com/css?family=Lato:300,400,700";
 
+/*-- Protospace new/edit ---------------------------------- */
+.image_preview {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar_icon {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
 /*-- Body style ---------------------------------- */
 body {
   font-family: "Lato", 'Helvetica Neue, Helvetica, Arial', sans-serif;

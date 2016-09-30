@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   def new
     @proto = Prototype.new
     @proto.images.build
-  end
+ end
 
   def create
     tag_params

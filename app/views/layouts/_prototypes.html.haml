@@ -1,7 +1,7 @@
 .col-sm-4.col-md-3.proto-content
-  - if proto.user_id == current_user.id
+  - if user_signed_in? && proto.user_id == current_user.id
     = link_to "edit",edit_prototype_path(proto)
-    = link_to "delete",prototype_path(proto), method: :delete
+    = link_to "delete", proto, method: :delete
   .thumbnail
     = link_to image_tag(proto.images.main.first.photo), prototype_path(proto)
     .caption

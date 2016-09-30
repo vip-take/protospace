@@ -4,28 +4,21 @@
       .col-md-12
         = f.text_field :title, placeholder: "Title", class: "proto-new-title",required: :required
     .row
-    = f.fields_for :images do |i|
+    = f.fields_for :images, @main do |i|
       .col-md-12
         .cover-image-upload
           = i.file_field :photo,required: :required
+          = image_tag("", class: "image_preview")
           = i.hidden_field :role, value: "main"
       .col-md-12
         %ul.proto-sub-list.list-group
-        = f.fields_for :images do |i|
-          %li.list-group-item.col-md-4
-            .image-upload
-              = i.file_field :photo
-              = i.hidden_field :role, value: "sub"
-        = f.fields_for :images do |i|
-          %li.list-group-item.col-md-4
-            .image-upload
-              = i.file_field :photo
-              = i.hidden_field :role, value: "sub"
-        = f.fields_for :images do |i|
-          %li.list-group-item.col-md-4
-            .image-upload
-              = i.file_field :photo
-              = i.hidden_field :role, value: "sub"
+        - 3.times do
+          = f.fields_for :images, @sub do |i|
+            %li.list-group-item.col-md-4
+              .image-upload
+                = i.file_field :photo
+                = image_tag("", class: "image_preview")
+                = i.hidden_field :role, value: "sub"
     .row.proto-description
       .col-md-12
         = f.text_field :catchcopy, placeholder: "Catch Copy", required: :required
