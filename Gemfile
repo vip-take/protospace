@@ -70,3 +70,17 @@ gem 'fog'
 gem 'dotenv-rails'
 
 gem 'config'
+
+group :development, :test do
+  gem "rspec-rails"         #rspec
+  gem "factory_girl_rails"  #テストデータを作成する
+  gem "faker"               #ダミーデータ生成
+end
+
+group :test do
+  gem "capybara"            #ユーザーとWebアプリのやり取りをシュミレート
+  gem "database_cleaner"    #データベースをまっさらな状態で各specが実行できるようにする
+  gem "launchy"             #テストのデバック用
+  gem "poltergeist"         #capybara driver
+end
+
