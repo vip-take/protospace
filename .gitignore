@@ -16,3 +16,5 @@
 /app/assets/images/*
 /public/uploads/*
 /public/fallback/*
+
+.env*
