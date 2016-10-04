@@ -4,7 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :prototypes
+  has_many :prototypes, dependent: :destroy
+
+  has_many :likes, dependent: :destroy
+
+  has_many :comments, dependent: :destroy
+
+  validates :name, presence: true
 
   # Carrierwave設定
   mount_uploader :avatar, AvatarUploader
