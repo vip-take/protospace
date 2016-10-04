@@ -17,6 +17,8 @@
 /public/uploads/*
 /public/fallback/*
 
+/spec/files/*
+
 .env*
 
 config/settings.local.yml
