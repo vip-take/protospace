@@ -15,22 +15,22 @@ describe Prototype do
     end
 
     describe '異常系確認' do
+      before :each do
+        @proto = prototype_with_main_sub
+      end
       it 'titleがない場合登録できないこと' do
-        proto = prototype_with_main_sub
-        proto.title = ""
-        expect(proto.save).to be_falsey
+        @proto.title = ""
+        expect(@proto.save).to be_falsey
       end
 
       it 'CatchCopyが無い場合登録できないこと' do
-        proto = prototype_with_main_sub
-        proto.catchcopy = ""
-        expect(proto.save).to be_falsey
+        @proto.catchcopy = ""
+        expect(@proto.save).to be_falsey
       end
 
       it 'conceptが無い場合登録できないこと' do
-        proto = prototype_with_main_sub
-        proto.concept = ""
-        expect(proto.save).to be_falsey
+        @proto.concept = ""
+        expect(@proto.save).to be_falsey
       end
 
       it 'sub画像だけの(mainが無い)場合登録できないこと' do
@@ -74,9 +74,11 @@ describe Prototype do
   end
 
   describe 'associations' do
-    it 'prototypeが削除された場合、関連するlikeが消えること' do
+    before :each do
       user.save
       prototype_with_main_sub.save
+    end
+    it 'prototypeが削除された場合、関連するlikeが消えること' do
       like.user_id = user.id
       like.prototype_id = prototype_with_main_sub.id
       prototype_with_main_sub.destroy
@@ -84,8 +86,6 @@ describe Prototype do
     end
 
     it 'prototypeが削除された場合、関連するcommentが消えること' do
-      user.save
-      prototype_with_main_sub.save
       comment.user_id = user.id
       comment.prototype_id = prototype_with_main_sub.id
       prototype_with_main_sub.destroy
