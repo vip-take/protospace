@@ -17,4 +17,9 @@ FactoryGirl.define do
       role 0
     end
   end
+
+  factory :image_default_main, class: Image do
+    photo { fixture_file_upload "spec/files/img/m1.png"}
+    role "main"
+  end
 end

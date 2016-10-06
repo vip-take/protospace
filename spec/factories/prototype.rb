@@ -9,7 +9,7 @@ FactoryGirl.define do
 
   trait :with_main_sub do
     after(:build) do |prototype|
-        prototype.images << FactoryGirl.build(:image, :main, prototype_id: prototype.id)
+        prototype.images << FactoryGirl.build(:image, :main)
         prototype.images << FactoryGirl.build(:image, :sub)
     end
   end
@@ -27,5 +27,6 @@ FactoryGirl.define do
   factory :comment, class: Comment do
     text { Faker::Lorem.sentence}
   end
+
 
 end
