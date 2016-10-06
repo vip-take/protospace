@@ -19,6 +19,8 @@ class PrototypesController < ApplicationController
     @comment = Comment.new
     if @proto.likes.find_by(user_id: current_user.id).present?
       @like = @proto.likes.find_by(user_id: current_user.id)
+    else
+      @like = Like.new
     end
   end
 

@@ -1,7 +1,7 @@
 .container.proto-page
   %header.row.user-nav
     .col-md-6
-      .media
+      .mediaf
         .media-left
           = link_to image_tag(@proto.user.avatar, class: "media-object", alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "#{@proto.user.avatar}", style: "width: 64px; height: 64px;"), "/users/#{@proto.user.id}"
         .media-body
@@ -12,10 +12,16 @@
             %span= @proto.user.profile
     .col-md-6.text-right
       #like-box
-        - if @proto.likes.find_by(user_id: current_user.id).present?
-          = render partial: "layouts/likes_on", locals: { proto: @proto, like: @like }
+        - if user_signed_in?
+          - if @proto.likes.find_by(user_id: current_user.id).present?
+            = render partial: "layouts/likes_on", locals: { proto: @proto, like: @like }
+          - else
+            = render partial: "layouts/likes_off", locals: { proto: @proto, like: @like }
         - else
-          = render partial: "layouts/likes_off", locals: { proto: @proto, like: @like }
+          %button.button.btn.btn-default
+            = image_tag("icon_heart_gray.svg")
+            like
+            %span.num= @proto.likes_count
   .row
     .col-md-9
       = image_tag @proto.images.main.first.photo, class: 'img-responsive'
@@ -49,8 +55,11 @@
       .form-inline
         %h4 Write a comment
         .row
+        - if user_signed_in?
           = form_for [@proto,@comment], remote: true ,method: :post do |f|
             .form-group.col-md-10
               = f.text_area :text, class: "form-control", placeholder: "Your comments", rows: "3",required: :required
             .form-group.col-md-2
               = f.submit "Comment",class: "button btn btn-primary"
+        - else
+          %h4 ログインすると、コメントできます。

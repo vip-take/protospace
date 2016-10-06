@@ -2,6 +2,9 @@ class Image < ActiveRecord::Base
 
   belongs_to :prototype
 
+  validates :photo, presence: true
+  validates :role, presence: true
+
 # Carrierwave設定
   mount_uploader :photo, AvatarUploader
 

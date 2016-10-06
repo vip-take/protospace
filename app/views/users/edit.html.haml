@@ -5,7 +5,7 @@
         %h2 Register
         .user-name_image.row
           .user-name.col-md-10
-            = f.text_field :name, placeholder: "Username", class: "user-name"
+            = f.text_field :name, placeholder: "Username", class: "user-name", required: :required
           .user-image.col-md-2{ style: "background-image: url(#{current_user.avatar});" }
             %button.btn.btn-primary change image
             = f.file_field :avatar, id: "avatar_image"
