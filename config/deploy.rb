@@ -32,9 +32,10 @@ set :default_env, {
   rbenv_root: "/home/takeshu/.rbenv",
   path: "/home/takeshu/.rbenv/shims:/home/takeshu/.rbenv/bin:$PATH",
   ACCESS_KEY_ID: ENV["ACCESS_KEY_ID"],
-  SECRET_ACCESS_KEY: ENV["SECRET_ACCESS_KEY"]
+  SECRET_ACCESS_KEY: ENV["SECRET_ACCESS_KEY"],
   DEVISE_SECRET_KEY: ENV["DEVISE_SECRET_KEY"]
 }
+
 
 namespace :deploy do
   desc 'Restart application'
