@@ -29,8 +29,8 @@ set :rbenv_ruby, '2.3.1'
 set :log_level, :debug
 
 set :default_env, {
-  rbenv_root: "/home/takeshu/.rbenv",
-  path: "/home/takeshu/.rbenv/shims:/home/takeshu/.rbenv/bin:$PATH",
+  # rbenv_root: "/home/takeshu/.rbenv",
+  # path: "/home/takeshu/.rbenv/shims:/home/takeshu/.rbenv/bin:$PATH",
   ACCESS_KEY_ID: ENV["ACCESS_KEY_ID"],
   SECRET_ACCESS_KEY: ENV["SECRET_ACCESS_KEY"],
   DEVISE_SECRET_KEY: ENV["DEVISE_SECRET_KEY"]
@@ -48,7 +48,7 @@ namespace :deploy do
     on roles(:db) do |host|
       with rails_env: fetch(:rails_env) do
         within current_path do
-          execute :rake, 'db:create', 'RAILS_ENV=production'
+          execute :bundle, :exec, :rake, 'db:create', 'RAILS_ENV=production'
         end
       end
     end
@@ -59,7 +59,7 @@ namespace :deploy do
     on roles(:db) do |host|
       with rails_env: fetch(:rails_env) do
         within current_path do
-          execute :rake, 'db:migrate', 'RAILS_ENV=production'
+          execute :bundle, :exec, :rake, 'db:migrate', 'RAILS_ENV=production'
         end
       end
     end
