@@ -28,6 +28,9 @@ set :rbenv_ruby, '2.3.1'
 #出力するログのレベル。
 set :log_level, :debug
 
+set :aws_access_key_id, ENV['ACCESS_KEY_ID']
+set :aws_secret_access_key, ENV['SECRET_ACCESS_KEY']
+
 namespace :deploy do
   desc 'Restart application'
   task :restart do

@@ -14,8 +14,6 @@ server '54.65.194.162', user: 'takeshu', roles: %w{app db web}
 #デプロイするサーバにsshログインする鍵の情報を記述
 set :ssh_options, keys: '~/.ssh/aws_test_01_takeshu_key_rsa'
 
-set aws_access_key_id: ENV['ACCESS_KEY_ID']
-set aws_secret_access_key: ENV['SECRET_ACCESS_KEY']
 
 # role-based syntax
 # ==================
