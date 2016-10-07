@@ -85,7 +85,7 @@ group :test do
 end
 
 group :development, :test do
- gem 'capistrano'
+ gem 'capistrano', '3.4.0'
  gem 'capistrano-bundler'
  gem 'capistrano-rails'
  gem 'capistrano-rbenv'
