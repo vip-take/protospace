@@ -5,7 +5,7 @@ lock '3.4.0'
 set :application, 'protospace'
 
 # cloneするgitのレポジトリに変更してください
-set :repo_url, 'git@github.com:vip-take/protospace.git'
+set :repo_url, 'https://github.com/vip-take/protospace.git'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, 'master'
