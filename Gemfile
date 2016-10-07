@@ -57,7 +57,7 @@ gem 'pry-rails'
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
-gem 'rmagick', require: 'RMagick'
+gem 'rmagick'
 
 gem 'kaminari'
 
