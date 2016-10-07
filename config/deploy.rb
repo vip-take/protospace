@@ -31,8 +31,8 @@ set :log_level, :debug
 set :default_env, {
   rbenv_root: "/home/takeshu/.rbenv",
   path: "/home/takeshu/.rbenv/shims:/home/takeshu/.rbenv/bin:$PATH",
-  aws_access_key_id: ENV["ACCESS_KEY_ID"],
-  aws_secret_access_key: ENV["SECRET_ACCESS_KEY"]
+  ACCESS_KEY_ID: ENV["ACCESS_KEY_ID"],
+  SECRET_ACCESS_KEY: ENV["SECRET_ACCESS_KEY"]
 }
 
 namespace :deploy do
