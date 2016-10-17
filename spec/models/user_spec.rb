@@ -54,24 +54,4 @@ describe User do
 
     end
   end
-
-# やること
-# １）各モデルのファイルを作成すること
-# ２）各モデルの正常系のテストをすること
-# ３）アソシエーション設定すること
-# ４）deleteのテストをすること
-
-  describe 'Associations' do
-    describe 'comments' do
-      it 'ユーザーを削除したら、コメントもきえること'
-    end
-
-    describe 'likes' do
-      it 'ユーザーを削除したら、likeも消えること'
-    end
-
-    describe 'prototypes' do
-      it 'ユーザーを削除したら、prototypeも消えること'
-    end
-  end
 end
