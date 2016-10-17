@@ -21,6 +21,18 @@ FactoryGirl.define do
     end
   end
 
+  trait :with_main_value_main do
+    after(:build) do |prototype|
+        prototype.images << FactoryGirl.build(:image_default_main)
+    end
+  end
+
+  trait :with_tags do
+    after(:build) do |prototype|
+        prototype.tag_list = '"T1","T2","T3"'
+    end
+  end
+
   factory :like, class: Like do
   end
 
