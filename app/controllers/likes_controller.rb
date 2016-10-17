@@ -1,5 +1,7 @@
 class LikesController < ApplicationController
 
+  before_action :authenticate_user!, only: [:create,:destroy]
+
   def create
     @like = Like.create(create_params)
     @proto = Prototype.find(params[:prototype_id])
