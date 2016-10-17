@@ -11,7 +11,8 @@
             %button.btn.btn-primary Add image
             = f.file_field :avatar, id: "avatar_image"
         = f.email_field :email, placeholder: "E-Mail(必須)", class: "user-email", required: :required
-        = f.password_field :password_confirmation, placeholder: "Password", autocomplete: "off", class: "user-password", required: :required
+        = f.password_field :password, placeholder: "Password", autocomplete: "off", class: "user-password", required: :required
+        = f.password_field :password_confirmation, placeholder: "Password(確認)", autocomplete: "off", class: "user-password", required: :required
       .col-md-12
         %h4 Member of
         .user-user-member.row
