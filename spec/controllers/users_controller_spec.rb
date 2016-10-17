@@ -5,8 +5,8 @@ describe UsersController do
   let(:user) { FactoryGirl.build(:user)}
   let(:like) { FactoryGirl.build(:like)}
   let(:comment) { FactoryGirl.build(:comment)}
-  let(:prototype_with_main_sub) { FactoryGirl.build(:prototype,:with_main_sub)}
-  let(:prototype_with_sub) { FactoryGirl.build(:prototype,:with_sub)}
+  let(:prototype_with_main_sub) { FactoryGirl.build(:prototype, :with_main_sub)}
+  let(:prototype_with_sub) { FactoryGirl.build(:prototype, :with_sub)}
   describe 'サインイン済みユーザー' do
     describe 'GET #show' do
       before :each do
