@@ -75,6 +75,7 @@ group :development, :test do
   gem "rspec-rails"         #rspec
   gem "factory_girl_rails"  #テストデータを作成する
   gem "faker"               #ダミーデータ生成
+  gem "selenium-webdriver"
 end
 
 group :test do
