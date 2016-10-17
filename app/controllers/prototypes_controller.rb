@@ -1,13 +1,18 @@
 class PrototypesController < ApplicationController
+
+  before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy]
+
   def new
     @proto = Prototype.new
     @proto.images.build
- end
+  end
 
   def create
     tag_params
-    @proto = Prototype.create(create_params)
-    if @proto.errors.present?
+    @proto = Prototype.new(create_params)
+    if @proto.save
+      flash[:notice] = 'Your prototype is posted'
+    elsif @proto.errors.present?
       flash[:error] = @proto.errors.full_messages
       redirect_to :back and return
     end
@@ -46,7 +51,11 @@ class PrototypesController < ApplicationController
 
   def destroy
     @proto = Prototype.find(params[:id])
-    @proto.destroy
+    if @proto.destroy
+      flash[:notice] = 'Prototype is deleted'
+    else
+      flash[:error] = 'fail to delete prototype'
+    end
     redirect_to :root
   end
 
@@ -57,7 +66,7 @@ class PrototypesController < ApplicationController
   end
 
   def create_params
-    params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:prototype_id,:photo, :role]).merge(user_id: current_user.id, tag_list: @tag_list)
+    params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:prototype_id, :photo, :role]).merge(user_id: current_user.id, tag_list: @tag_list)
   end
 
   def update_params
