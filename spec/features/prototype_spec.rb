@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry-rails'
 
 feature 'Prototype create' do
   given(:user) { FactoryGirl.build(:user)}

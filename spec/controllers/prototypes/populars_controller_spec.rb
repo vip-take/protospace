@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry-rails'
 
 describe Prototypes::PopularsController do
   let(:user) { FactoryGirl.build(:user)}

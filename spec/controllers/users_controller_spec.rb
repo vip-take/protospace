@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry-rails'
 
 describe UsersController do
   let(:user) { FactoryGirl.build(:user)}
@@ -11,6 +10,7 @@ describe UsersController do
     describe 'GET #show' do
       before :each do
         user.save
+        sign_in user
         get :show , id: user
       end
       it 'ユーザー情報がセットされること' do
@@ -25,6 +25,7 @@ describe UsersController do
     describe 'GET #edit' do
       before :each do
         user.save
+        sign_in user
         get :edit, id: user
       end
       it 'ユーザー情報がセットされること' do
@@ -39,6 +40,7 @@ describe UsersController do
     describe 'PATCH #update' do
       before :each do
         user.save
+        sign_in user
       end
       it '変更前のユーザー情報がセットされること' do
         patch :update , id: user, user: attributes_for(:user)
@@ -71,12 +73,14 @@ describe UsersController do
   describe '未サインインユーザー' do
     describe 'GET #edit' do
       it 'サインインページにリダイレクトされること' do
-        expect { get :edit }.to raise_error
+        get :edit, id:1
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
     describe 'GET #update' do
       it 'サインインページにリダイレクトされること' do
-        expect { patch :edit }.to raise_error
+        patch :edit, id:1
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end

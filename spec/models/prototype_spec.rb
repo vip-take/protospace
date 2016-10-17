@@ -81,15 +81,17 @@ describe Prototype do
     it 'prototypeが削除された場合、関連するlikeが消えること' do
       like.user_id = user.id
       like.prototype_id = prototype_with_main_sub.id
+      like.save
       prototype_with_main_sub.destroy
-      expect { like.reload }.to raise_error
+      expect(Like.all.count).to eq 0
     end
 
     it 'prototypeが削除された場合、関連するcommentが消えること' do
       comment.user_id = user.id
       comment.prototype_id = prototype_with_main_sub.id
+      comment.save
       prototype_with_main_sub.destroy
-      expect { comment.reload }.to raise_error
+      expect(Comment.all.count).to eq 0
     end
   end
 end
